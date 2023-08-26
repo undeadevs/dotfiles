@@ -106,3 +106,31 @@ alias zi=__zoxide_zi
 function fish_greeting
     neofetch
 end
+
+function fish_prompt
+    printf "\n┌"
+    set_color brblack
+    printf "\UE0B6"
+    set_color white
+    set_color -b brblack
+    printf "%s@%s " $USER $hostname
+    set_color brblack
+    set_color -b blue
+    printf "\UE0B4 "
+    set_color white
+    set_color -b blue
+    printf "%s " $SHELL
+    set_color blue
+    set_color -b cyan
+    printf "\UE0B4"
+    set_color normal
+    set_color -b cyan
+    printf " "
+    set_color black
+    printf "%s" (prompt_pwd)
+    set_color normal
+    set_color cyan
+    printf "\UE0B4"
+    set_color normal
+    printf "\n└ \$ "
+end
