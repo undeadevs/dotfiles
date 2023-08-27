@@ -9,7 +9,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias pamer='neofetch'
 # PS1='[\u@\h \W]\$ '
-PS1=$'\n┌\[\e[90m\]\ue0b6\[\e[100m\]\[\e[37m\]\u@\h \[\e[90m\]\[\e[44m\]\ue0b4 \[\e[44m\]\[\e[37m\]$SHELL \[\e[46m\]\[\e[34m\]\ue0b4\[\e[0m\]\[\e[46m\] \[\e[30m\]\w\[\e[0m\]\[\e[36m\]\ue0b4\[\e[0m\]\n└ \$ '
+PS1=$'\n┌\[\e[90m\]\ue0b6\[\e[100m\]\[\e[37m\]\u@\h \[\e[90m\]\[\e[44m\]\ue0b4 \[\e[44m\]\[\e[37m\]${SHELL##*/} \[\e[46m\]\[\e[34m\]\ue0b4\[\e[0m\]\[\e[46m\] \[\e[30m\]\w\[\e[0m\]\[\e[36m\]\ue0b4\[\e[0m\]\n└ \$ '
 source /usr/share/nvm/init-nvm.sh
 . "$HOME/.cargo/env"
 export EDITOR=nvim

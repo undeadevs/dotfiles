@@ -119,7 +119,7 @@ function fish_prompt
     printf "\UE0B4 "
     set_color white
     set_color -b blue
-    printf "%s " $SHELL
+    printf "%s " (basename $SHELL)
     set_color blue
     set_color -b cyan
     printf "\UE0B4"
@@ -140,3 +140,10 @@ set -gx EDITOR nvim
 set -gx GTK_IM_MODULE fcitx
 set -gx QT_IM_MODULE fcitx
 set -gx XMODIFIERS "@im=fcitx"
+
+# pnpm
+set -gx PNPM_HOME "/home/undeadevs/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
