@@ -107,6 +107,9 @@ function fish_greeting
     neofetch
 end
 
+function fish_mode_prompt
+end
+
 function fish_prompt
     printf "\n┌"
     set_color brblack
@@ -132,7 +135,33 @@ function fish_prompt
     set_color cyan
     printf "\UE0B4"
     set_color normal
-    printf "\n└ \$ "
+    switch $fish_bind_mode
+        case "default"
+            printf "\n└ "
+            set_color brblue
+            printf "[N] "
+            set_color normal
+        case "insert"
+            printf "\n└ "
+            set_color brcyan
+            printf "[I] "
+            set_color normal
+        case "visual"
+            printf "\n└ "
+            set_color bryellow
+            printf "[V] "
+            set_color normal
+        case "replace"
+            printf "\n└ "
+            set_color brpurple
+            printf "[R] "
+            set_color normal
+        case "replace-one"
+            printf "\n└ "
+            set_color brpurple
+            printf "[R] "
+            set_color normal
+    end 
 end
 
 set -gx EDITOR nvim
