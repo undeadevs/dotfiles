@@ -103,6 +103,16 @@ alias zi=__zoxide_zi
 
 # =============================================================================
 
+function fuck -d "Correct your previous console command"
+  set -l fucked_up_command $history[1]
+  env TF_SHELL=fish TF_ALIAS=fuck PYTHONIOENCODING=utf-8 thefuck $fucked_up_command THEFUCK_ARGUMENT_PLACEHOLDER $argv | read -l unfucked_command
+  if [ "$unfucked_command" != "" ]
+    eval $unfucked_command
+    builtin history delete --exact --case-sensitive -- $fucked_up_command
+    builtin history merge
+  end
+end
+
 function fish_greeting
     neofetch
 end
@@ -135,29 +145,25 @@ function fish_prompt
     set_color cyan
     printf "\UE0B4"
     set_color normal
+    printf "\n└ "
     switch $fish_bind_mode
         case "default"
-            printf "\n└ "
             set_color brblue
             printf "[N] "
             set_color normal
         case "insert"
-            printf "\n└ "
             set_color brcyan
             printf "[I] "
             set_color normal
         case "visual"
-            printf "\n└ "
             set_color bryellow
             printf "[V] "
             set_color normal
         case "replace"
-            printf "\n└ "
             set_color brpurple
             printf "[R] "
             set_color normal
         case "replace-one"
-            printf "\n└ "
             set_color brpurple
             printf "[R] "
             set_color normal
@@ -170,9 +176,17 @@ set -gx GTK_IM_MODULE fcitx
 set -gx QT_IM_MODULE fcitx
 set -gx XMODIFIERS "@im=fcitx"
 
+function brc
+    z $(fd --base-directory ~/code -a --no-ignore --max-depth 3 --type d | fzf)
+end
+
 # pnpm
 set -gx PNPM_HOME "/home/undeadevs/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
