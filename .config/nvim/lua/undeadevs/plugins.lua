@@ -105,6 +105,9 @@ require('lazy').setup({
     name = "rose-pine",
   },
   {
+    "folke/tokyonight.nvim",
+  },
+  {
     -- A Vim port of my VSCode Custom Theme
     "undeadevs/clarity-dark.vim",
     priority = 1000,
@@ -120,13 +123,13 @@ require('lazy').setup({
   {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',      -- optional
+    },
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
         theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
       },
     },
   },
@@ -231,5 +234,15 @@ require('lazy').setup({
   -- Zoxide wrapper for better navigation
   {
     'nanotee/zoxide.vim',
+  },
+
+  -- Tmux status line
+  {
+    'vimpostor/vim-tpipeline',
+  },
+
+  -- Color display
+  {
+    "norcalli/nvim-colorizer.lua",
   },
 }, {})
