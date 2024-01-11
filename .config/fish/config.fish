@@ -183,6 +183,8 @@ end
 alias supacman="sudo pacman"
 alias gitzip="git archive HEAD -o"
 
+alias gdot="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+
 # pnpm
 set -gx PNPM_HOME "/home/undeadevs/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
