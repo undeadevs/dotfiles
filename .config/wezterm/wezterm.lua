@@ -10,6 +10,8 @@ config.adjust_window_size_when_changing_font_size = false
 
 config.window_background_opacity = 0.90
 
+config.enable_tab_bar = false;
+
 config.window_padding = {
   top = 4,
   left = 4,

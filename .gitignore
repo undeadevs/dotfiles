@@ -7,7 +7,24 @@
 !.bashrc
 !.bash_profile
 
+!.tmux.conf
+
 !.config/
+
+!.config/hypr/
+!.config/hypr/**
+
+!.config/waybar/
+!.config/waybar/**
+
+!.config/swaylock/
+!.config/swaylock/**
+
+!.config/hyprpaper/
+!.config/hyprpaper/**
+
+!.config/rofi/
+!.config/rofi/**
 
 !.config/nvim/
 !.config/nvim/**
@@ -23,6 +40,9 @@
 
 !.config/fxcit5/
 !.config/fxcit5/**
+
+!.config/pipewire/
+!.config/pipewire/**
 
 !.local/
 !.local/share/

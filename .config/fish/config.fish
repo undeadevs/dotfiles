@@ -172,13 +172,16 @@ end
 
 set -gx EDITOR nvim
 
-set -gx GTK_IM_MODULE fcitx
+set -gx GTK_IM_MODULE wayland
 set -gx QT_IM_MODULE fcitx
 set -gx XMODIFIERS "@im=fcitx"
 
 function brc
     z $(fd --base-directory ~/code -a --no-ignore --max-depth 3 --type d | fzf)
 end
+
+alias supacman="sudo pacman"
+alias gitzip="git archive HEAD -o"
 
 # pnpm
 set -gx PNPM_HOME "/home/undeadevs/.local/share/pnpm"
@@ -190,3 +193,6 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# Created by `pipx` on 2023-09-20 03:48:02
+set PATH $PATH /home/undeadevs/.local/bin
