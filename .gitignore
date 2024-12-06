@@ -32,6 +32,9 @@
 !.config/wezterm/
 !.config/wezterm/**
 
+!.config/kitty/
+!.config/kitty/**
+
 !.config/fish/
 !.config/fish/**
 

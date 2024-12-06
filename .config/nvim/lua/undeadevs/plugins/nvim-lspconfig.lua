@@ -45,14 +45,12 @@ return {
 
     local servers = {
       rust_analyzer = {},
-      tsserver = {},
+      ts_ls = {},
       eslint = {},
       emmet_ls = {},
       html = {},
       svelte = {},
       tailwindcss = {},
-      bufls = {},
-      sqlls = {},
       yamlls = {},
       clangd = {},
 
@@ -90,11 +88,9 @@ return {
       function(server_name)
         local server = servers[server_name]
         if server then
-          require("lspconfig")[server_name].setup({
-            capabilities = server.capabilities or capabilities,
-            on_attach = server.on_attach or on_attach,
-            settings = server.settings or {},
-          })
+          server.capabilities = server.capabilities or capabilities
+          server.on_attach = server.on_attach or on_attach
+          require("lspconfig")[server_name].setup(server)
         else
           require("lspconfig")[server_name].setup({
             capabilities = capabilities,
