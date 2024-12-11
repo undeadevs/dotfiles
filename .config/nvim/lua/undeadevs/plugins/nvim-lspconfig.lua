@@ -101,6 +101,10 @@ return {
       end,
     })
 
+    require("lspconfig")["hls"].setup({
+      filetypes = { "haskell", "lhaskell", "cabal" },
+    })
+
     package.loaded["lsp-handlers"] = {
       capabilities = capabilities,
       on_attach = on_attach,

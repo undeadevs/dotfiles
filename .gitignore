@@ -41,8 +41,8 @@
 !.config/neofetch/
 !.config/neofetch/**
 
-!.config/fxcit5/
-!.config/fxcit5/**
+!.config/fcitx5/
+!.config/fcitx5/**
 
 !.config/pipewire/
 !.config/pipewire/**
