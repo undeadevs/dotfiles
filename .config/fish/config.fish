@@ -172,7 +172,7 @@ end
 
 set -gx EDITOR nvim
 
-set -gx GTK_IM_MODULE wayland
+# set -gx GTK_IM_MODULE wayland
 set -gx QT_IM_MODULE fcitx
 set -gx XMODIFIERS "@im=fcitx"
 

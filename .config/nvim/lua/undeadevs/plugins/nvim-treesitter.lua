@@ -112,9 +112,9 @@ return {
         vim.api.nvim_buf_create_user_command(args.buf, "EJSBeautify", function(_)
           vim.cmd(
             "!js-beautify --type html -I true -f "
-              .. vim.api.nvim_buf_get_name(args.buf)
-              .. " -o "
-              .. vim.api.nvim_buf_get_name(args.buf)
+            .. vim.api.nvim_buf_get_name(args.buf)
+            .. " -o "
+            .. vim.api.nvim_buf_get_name(args.buf)
           )
         end, { desc = "Format current EJS file" })
       end,
@@ -122,5 +122,20 @@ return {
     })
 
     vim.treesitter.language.register("embedded_template", "ejs")
+
+    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+    parser_config.blade = {
+      install_info = {
+        url = "https://github.com/EmranMR/tree-sitter-blade",
+        files = { "src/parser.c" },
+        branch = "main",
+      },
+      filetype = "blade",
+    }
+    vim.filetype.add({
+      pattern = {
+        [".*%.blade%.php"] = "blade",
+      },
+    })
   end,
 }

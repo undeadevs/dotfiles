@@ -4,8 +4,8 @@ return {
   dependencies = {
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
-    { "j-hui/fidget.nvim", opts = {} },
-    { "folke/neodev.nvim", opts = {} },
+    { "j-hui/fidget.nvim",       opts = {} },
+    { "folke/neodev.nvim",       opts = {} },
   },
 
   config = function()
@@ -53,6 +53,8 @@ return {
       tailwindcss = {},
       yamlls = {},
       clangd = {},
+      biome = {},
+      phpactor = {},
 
       lua_ls = {
         settings = {
