@@ -17,8 +17,8 @@
 !.config/waybar/
 !.config/waybar/**
 
-!.config/swaylock/
-!.config/swaylock/**
+!.config/hyprlock/
+!.config/hyprlock/**
 
 !.config/hyprpaper/
 !.config/hyprpaper/**
