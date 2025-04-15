@@ -4,8 +4,8 @@ return {
   dependencies = {
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
-    { "j-hui/fidget.nvim",       opts = {} },
-    { "folke/neodev.nvim",       opts = {} },
+    { "j-hui/fidget.nvim", opts = {} },
+    { "folke/neodev.nvim", opts = {} },
   },
 
   config = function()
@@ -38,9 +38,20 @@ return {
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end, "[W]orkspace [L]ist Folders")
 
-      vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-        vim.lsp.buf.format()
-      end, { desc = "Format current buffer with LSP" })
+      -- vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+      --   vim.lsp.buf.format()
+      -- end, { desc = "Format current buffer with LSP" })
+      vim.api.nvim_create_user_command("Format", function(args)
+        local range = nil
+        if args.count ~= -1 then
+          local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+          range = {
+            start = { args.line1, 0 },
+            ["end"] = { args.line2, end_line:len() },
+          }
+        end
+        require("conform").format({ async = true, lsp_format = "fallback", range = range })
+      end, { range = true })
     end
 
     local servers = {
@@ -53,7 +64,6 @@ return {
       tailwindcss = {},
       yamlls = {},
       clangd = {},
-      biome = {},
       phpactor = {},
 
       lua_ls = {

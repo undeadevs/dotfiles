@@ -196,5 +196,8 @@ end
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
+# nvm
+set -Ux nvm_default_version "latest"
+
 # Created by `pipx` on 2023-09-20 03:48:02
 set PATH $PATH /home/undeadevs/.local/bin
