@@ -117,6 +117,9 @@ return {
       filetypes = { "haskell", "lhaskell", "cabal" },
     })
 
+    require("lspconfig")["gdscript"].setup({
+    })
+
     package.loaded["lsp-handlers"] = {
       capabilities = capabilities,
       on_attach = on_attach,

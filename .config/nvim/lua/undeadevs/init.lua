@@ -8,6 +8,7 @@ vim.cmd.highlight("NonText", "ctermbg=none")
 require("undeadevs.opts")
 require("undeadevs.keymaps")
 require("undeadevs.lazy")
+require("undeadevs.godot")
 
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
